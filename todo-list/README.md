@@ -13,7 +13,7 @@ A simple To-Do List application that allows users to add, edit, and delete tasks
 1. **Clone the Repository**
 
    ```bash
-   https://github.com/Samuel-K95/Todo-list.git
+   https://github.com/Samuel-K95/Web-track/todo-list.git
    ```
 
 2. **Navigate to the Project Directory**
