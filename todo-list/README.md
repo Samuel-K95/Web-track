@@ -14,13 +14,12 @@ A simple To-Do List application that allows users to add, edit, and delete tasks
 
    ```bash
    https://github.com/Samuel-K95/Web-track.git
-   cd todo-list
    ```
 
 2. **Navigate to the Project Directory**
 
    ```bash
-   cd Todo-list
+   cd todo-list
    ```
 
 3. **Open the Application**
