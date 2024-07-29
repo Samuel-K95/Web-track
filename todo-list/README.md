@@ -1,6 +1,6 @@
 # To-Do List
 
-A simple To-Do List application that allows users to add, edit, and delete tasks. The application features a user-friendly interface for managing tasks efficiently.
+A simple To-Do List application built using javascript that allows users to add, edit, and delete tasks. The application features a user-friendly interface for managing tasks efficiently.
 
 ## Features
 
