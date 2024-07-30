@@ -78,7 +78,6 @@ function deleteTask(index) {
     tasks.splice(index, 1);
     const tasksDiv = document.getElementById("tasks");
     tasksDiv.innerHTML = '';
-    console.log("here");
 
     tasks.forEach((task, idx) => {
         let HTML = `
