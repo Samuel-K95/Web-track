@@ -1,6 +1,6 @@
 # To-Do List
 
-A simple To-Do List application that allows users to add, edit, and delete tasks. The application features a user-friendly interface for managing tasks efficiently.
+A simple To-Do List application built using javascript that allows users to add, edit, and delete tasks. The application features a user-friendly interface for managing tasks efficiently.
 
 ## Features
 
@@ -13,13 +13,13 @@ A simple To-Do List application that allows users to add, edit, and delete tasks
 1. **Clone the Repository**
 
    ```bash
-   https://github.com/Samuel-K95/Web-track/todo-list.git
+   https://github.com/Samuel-K95/Web-track.git
    ```
 
 2. **Navigate to the Project Directory**
 
    ```bash
-   cd Todo-list
+   cd todo-list
    ```
 
 3. **Open the Application**
