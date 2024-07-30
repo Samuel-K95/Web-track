@@ -21,12 +21,18 @@ A simple To-Do List application built using typescript that allows users to add,
    ```bash
    cd todo-list-ts
    ```
+3. **Initialize and Compile the typescript**
+   
+   ```bash
+   tsc --init
+   tsc
+   ```
 
-3. **Open the Application**
+4. **Open the Application**
 
    Open `index.html` in your preferred web browser.
 
-4. **Screenshots**
+5. **Screenshots**
 
 # adding task
 ![Add task](images/first.PNG)
