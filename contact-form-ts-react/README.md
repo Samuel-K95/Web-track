@@ -11,7 +11,7 @@ This is the 5th task of the Web-larning path. it task includes building a simple
 
 ## additional features
 
-- included routes to navigate to a second page to view submtted routes
+- included routes to navigate to a second page to view submtted forms
 - added deleting form feature along with deletion notification
 
 ## Instructions for Running
