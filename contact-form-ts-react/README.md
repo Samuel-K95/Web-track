@@ -38,19 +38,19 @@ This is the 5th task of the Web-larning path. this task includes building a simp
 ## Screenshots
 
 1. **Submitting forms**
-   !(Submit form)[images/submit.PNG]
-   !(Submit form)[images/submit1.PNG]
+   ![Submit form](images/submit.PNG)
+   ![Submit form](images/submit1.PNG)
 
 2. **Validating forms**
    this image shows form validation of required fields
-   !(Required field)[images/validation.PNG]
+   ![Required field](images/validation.PNG)
 
    this image shows email validation using regex
-   !(Email validation)[images/validation1.PNG]
+   ![Email validation](images/validation1.PNG)
 
 3. **Viewing submitted forms**
    by clicing the "submitted forms" below the Contact US, we can navigate to the submitted forms page
-   !(Submitted fields)[images/submitted.PNG]
+   ![Submitted fields](images/submitted.PNG)
 
 4. **Deleting a form**
-   !(Delete task)[images/delete.PNG]
+   ![Delete task](images/delete.PNG)
