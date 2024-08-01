@@ -2,8 +2,7 @@ import React from "react";
 import { useState } from "react";
 import TodoTypes from "../todo";
 import TodoService from "../TodoService";
-import { FaEdit, FaCheck } from "react-icons/fa";
-import { GiCancel } from "react-icons/gi";
+import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import TodoForm from "./TodoForm";
 import "../CSS/Todolist.css";
@@ -61,15 +60,18 @@ const TodoList = () => {
                   onChange={(e) => setEditedTodoText(e.target.value)}
                   autoFocus={true}
                 />
-                <button onClick={() => handleEditSave(todo.id)}>
-                  <FaCheck />
+                <button
+                  className="saveBtn"
+                  onClick={() => handleEditSave(todo.id)}
+                >
+                  Save
                 </button>
 
                 <button
                   className="cancelBtn"
                   onClick={() => handleEditCancel()}
                 >
-                  <GiCancel />
+                  Cancel
                 </button>
               </div>
             ) : (

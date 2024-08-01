@@ -4,9 +4,10 @@
     height: 100px;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     margin-top: 20px;
+    align-items: center;
+
   }
   
   
@@ -38,12 +39,12 @@
   .inputForm > button {
     font-family: 'Roboto', sans-serif;
     padding:5px 10px;
-    background: #FFB534;
+    background: #015f0e;
     cursor: pointer;
     font-weight: 500;
     border-radius: 5px;
     margin-top: 10px;
-   
+    color: white;
   }
   
   

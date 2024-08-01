@@ -23,15 +23,15 @@
   
   
   .header {
-    background: rgb(44, 44, 44);
-    color: white;
+    background: white;
+    color: rgb(44, 44, 44);
     font-family: "Roboto", sans-serif;
     display: flex;
     justify-content: center;
-    padding: 10px;
-    border: 2px solid red;
+    /* padding: 10px; */
     border-radius: 10px;
     position: static;
+    box-shadow: 1px 1px 1px rgba(114, 113, 113, 0);
   }
   
   
