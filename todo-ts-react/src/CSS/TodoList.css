@@ -27,7 +27,6 @@
   
   
   .items:hover{
-    box-shadow: 1px 1px 6px -1px rgb(81, 80, 80);
     cursor: pointer;
   }
   
@@ -97,13 +96,36 @@
     flex: 1;
     margin: 10px;
   }
+
+  .editBtn > button{
+    background-color: #064ebb;
+    color: white;
+    font-size: 18px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+
   .editBtn > span {
     display: flex;
     align-items: center;
     margin-right: 10px
   }
-  .items > button {
-    color: red;
+
+  .Deletebtn{
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border-radius: 5px;
   }
   
   

@@ -78,13 +78,16 @@ const TodoList = () => {
               <div className="editBtn">
                 <span>{todo.text}</span>
                 <button onClick={() => handleEditStart(todo.id, todo.text)}>
-                  <FaEdit />
+                  Edit
                 </button>
               </div>
             )}
 
-            <button onClick={() => handleDeleteTodo(todo.id)}>
-              <RiDeleteBin5Fill />
+            <button
+              className="Deletebtn"
+              onClick={() => handleDeleteTodo(todo.id)}
+            >
+              Delete
             </button>
           </div>
         ))}

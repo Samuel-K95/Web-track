@@ -24,7 +24,7 @@
     width: 80%;
     max-width: 900px; /* Set the maximum width */
     margin: 0 auto; /* Center the container */
-    box-shadow: 1px 1px 6px -2px #000;
+    box-shadow: 1px 1px 6px -2px grey;
     background: #F3F8FF;
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -46,5 +46,6 @@
     margin-top: 10px;
     color: white;
   }
+  
   
   
