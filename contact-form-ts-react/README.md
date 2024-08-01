@@ -1,6 +1,6 @@
 # Contact-Us Form
 
-This is the 5th task of the Web-larning path. this task includes building a simple Contact-us Form built using Reach-hook-form.
+This is the 5th task of the Web-larning path. it task includes building a simple Contact-us Form using Reach-hook-form.
 
 ## Features
 
