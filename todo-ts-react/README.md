@@ -22,13 +22,7 @@ A simple To-Do List application built using React and Typescript that allows use
    cd todo-ts-react
    ```
 
-3. **configure vite**
-
-   ```bash
-   vite create@4.1.0
-   ```
-
-4. **run the following instructions**
+3. **run the following instructions**
 
    ```bash
    npm install
