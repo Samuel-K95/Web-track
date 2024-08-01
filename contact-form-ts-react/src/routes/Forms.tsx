@@ -16,6 +16,7 @@ const Forms = () => {
   const handleDelete = (id: number): void => {
     ContactService.deleteContactFOrm(id);
     setSubmittedForms(ContactService.getContactForms());
+    alert("Deleted Successfully!");
   };
 
   return (
