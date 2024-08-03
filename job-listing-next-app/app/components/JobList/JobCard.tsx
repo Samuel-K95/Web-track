@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import JobType from "@/app/JobType";
 import Image from "next/image";
+import JobDescription from "../JobDescription/JobDescription";
 
 interface Prop {
   children: JobType;
@@ -21,7 +22,9 @@ const JobList = ({ children, idx }: Prop) => {
         </div>
         <div className="JobDescription ">
           <h2 className="mb-3 font-sans-mono font-semibold">
-            <a href={`${idx}`}>{children.title}</a>
+            <a href={`opportunities/description?index=${idx}`}>
+              {children.title}
+            </a>
           </h2>
           <span>
             <span className="text-gray-400 text-sm mr-1">
