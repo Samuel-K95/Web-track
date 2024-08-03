@@ -4,8 +4,8 @@ import jobLists from "@/app/opportunities/data";
 
 const OpportunitiesPage = () => {
   return (
-    <div className="mt-10 w-4/5 flex flex-col">
-      <div className="Headline flex  justify-between align-middle">
+    <div className="mt-10 w-4/5 flex justify-center align-middle items-center flex-col">
+      <div className="w-4/5 flex justify-between">
         <div className="mt-0 Opportunities">
           <h1 className="mt-0 text-3xl font-extrabold">Opportunities</h1>
           <span className="text-gray-500">Showing 73 results</span>
@@ -20,9 +20,9 @@ const OpportunitiesPage = () => {
         </div>
       </div>
 
-      <div className="Container p-2">
+      <div className="Container p-2 flex justify-center align-middle items-center flex-col">
         {jobLists.map((job, index) => (
-          <JobList children={job} key={index} />
+          <JobList children={job} idx={index} key={index} />
         ))}
       </div>
     </div>

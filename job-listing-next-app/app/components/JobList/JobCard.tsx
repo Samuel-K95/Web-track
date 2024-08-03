@@ -4,11 +4,12 @@ import Image from "next/image";
 
 interface Prop {
   children: JobType;
+  idx: number;
 }
 
-const JobList = ({ children }: Prop) => {
+const JobList = ({ children, idx }: Prop) => {
   return (
-    <div className="mt-5 JobList p-5  hover:shadow-md border hover:cursor-pointer rounded-3xl">
+    <div className="mt-5  w-4/5 JobList p-5  hover:shadow-md border hover:cursor-pointer rounded-3xl">
       <div className="MainContent flex flex-row">
         <div className="image flex-shrink-0 mr-5">
           <Image
@@ -20,7 +21,7 @@ const JobList = ({ children }: Prop) => {
         </div>
         <div className="JobDescription ">
           <h2 className="mb-3 font-sans-mono font-semibold">
-            {children.title}
+            <a href={`${idx}`}>{children.title}</a>
           </h2>
           <span>
             <span className="text-gray-400 text-sm mr-1">
