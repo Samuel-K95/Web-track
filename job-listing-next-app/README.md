@@ -39,3 +39,5 @@ This is the 6th task of the Web-larning path. It includes building a Job Listing
 
 ![First](images/first.png)
 ![Second](images/second.png)
+
+[Screen Recording - Made with RecordCast.webm](https://github.com/user-attachments/assets/433f7e40-8b47-4874-bcee-5a851608363d)
