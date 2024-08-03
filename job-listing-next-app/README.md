@@ -7,6 +7,11 @@ This is the 6th task of the Web-larning path. It includes building a Job Listing
 - Listing Jobs
 - Routing to Specific Job description
 
+## Tech Stack
+
+- Next-js
+- Tailwindcss
+
 ## Instructions for Running
 
 1. **Clone the Repository**
