@@ -11,7 +11,7 @@ const JobDescription = ({ index }: Prop) => {
 
   return (
     <div className="flex justify-center">
-      <div className="flex p-5 w-4/5">
+      <div className="flex p-5 w-4/5 justify-between">
         <div className="paragraph w-3/4 mr-10 p-5">
           <div className="Description mt-5">
             <h2 className="mt-0 text-3xl font-extrabold mb-3">Description</h2>
@@ -22,9 +22,15 @@ const JobDescription = ({ index }: Prop) => {
               Responsibilities
             </h2>
             {demo.responsibilities.map((resp, index) => (
-              <div className="flex" key={index}>
-                <span className="mr-2">
-                  <Image src={"/icon.png"} width={20} height={20} alt="icon" />
+              <div className="flex flex-row" key={index}>
+                <span className="mr-2 flex-shrink-0">
+                  <Image
+                    src={"/icon.png"}
+                    width={20}
+                    height={20}
+                    alt="icon"
+                    className="flex-shrink-0"
+                  />
                 </span>
                 <p>{resp}</p>
               </div>
@@ -72,10 +78,10 @@ const JobDescription = ({ index }: Prop) => {
           </div>
         </div>
 
-        <div className="rightContent flex flex-col m-5 flex-auto pb-10">
+        <div className=" flex flex-col m-5 pb-10">
           <h2 className="mt-0 text-3xl font-extrabold mb-3">About</h2>
 
-          <div className="p-2 border-b-2 flex flex-col justify-start pb-5">
+          <div className=" border-b-2 flex flex-col justify-start pb-5">
             <div className="Postedon flex items-center mb-5">
               <span>
                 <Image
