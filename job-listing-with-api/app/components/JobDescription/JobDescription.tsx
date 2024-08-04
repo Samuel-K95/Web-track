@@ -8,8 +8,13 @@ interface prop {
   id: string;
 }
 
+/**
+ * This is the JobDescription component that accepts an id as a prop, fetch the Job by using the id and
+ * populates the page based on the recieved data
+ */
 const JobDescription = ({ id }: prop) => {
-  const { data, isError, isLoading } = useGetJobByIdQuery(id);
+  const { data, isError, isLoading } =
+    useGetJobByIdQuery(id); /* fetching data */
   if (isError) {
     return <div>Error</div>;
   }

@@ -8,7 +8,8 @@ const page = () => {
   const stringIndex = searchParams.get("index");
   return (
     <div>
-      <JobDescription id={stringIndex!} />
+      <JobDescription id={stringIndex!} />{" "}
+      {/* This page accepts the id from the url and pass it to the JobDescription component as a prop*/}
     </div>
   );
 };

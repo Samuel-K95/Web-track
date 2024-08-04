@@ -6,6 +6,10 @@ interface job {
   job: JobType;
 }
 
+/**
+ * This is the JobCard component which accepts the Job object as a prop and populates the card from it.
+ */
+
 const JobCard = ({ job }: job) => {
   const url: string = job.logoUrl
     ? job.logoUrl

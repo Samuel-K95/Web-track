@@ -1,3 +1,7 @@
+/**
+ * This is an interface that defines the Job that is recieved from the endpoints
+ */
+
 interface JobType {
   id: string;
   title: string;
