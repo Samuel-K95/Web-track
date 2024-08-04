@@ -1,6 +1,6 @@
 # Job-Listing
 
-This is the 6th task of the Web-larning path. It includes building a Job Listing Page along with a page for the description of each job.
+This is the 7th task of the Web-larning path. It includes building a Job listing and a job description page by fetching the data from **https://akil-backend.onrender.com/**
 
 ## Features
 
