@@ -11,6 +11,7 @@ This is the 6th task of the Web-larning path. It includes building a Job Listing
 
 - Next-js
 - Tailwindcss
+- RTK Query
 
 ## Instructions for Running
 
@@ -23,7 +24,7 @@ This is the 6th task of the Web-larning path. It includes building a Job Listing
 2. **Navigate to the Project Directory**
 
    ```bash
-   cd job-listing-next-app
+   cd job-listing-with-api
    ```
 
 3. **Install necessary modules**
@@ -37,6 +38,6 @@ This is the 6th task of the Web-larning path. It includes building a Job Listing
 
 ## Screenshots
 
-![First](images/first.png)
-![Second](images/second.png)
-![third](images/third.png)
+![First](images/first.PNG)
+![Second](images/second.PNG)
+![third](images/third.PNG)
