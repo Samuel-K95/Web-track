@@ -2,6 +2,7 @@ import { useGetAllJobsQuery } from "@/lib/service/data";
 import React from "react";
 import JobType from "../JobType";
 import JobCard from "../components/JobCard/JobCard";
+import Loading from "../components/Loading/loading";
 
 const Opportunities = () => {
   const { data, isError, isLoading } = useGetAllJobsQuery(undefined);
@@ -9,7 +10,7 @@ const Opportunities = () => {
     return <div>Error</div>;
   }
   if (isLoading) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
   const jobLists: JobType[] = data?.data;
   console.log("data: ");

@@ -2,6 +2,7 @@ import JobType from "@/app/JobType";
 import { useGetJobByIdQuery } from "@/lib/service/data";
 import React from "react";
 import Image from "next/image";
+import Loading from "../Loading/loading";
 
 interface prop {
   id: string;
@@ -13,7 +14,7 @@ const JobDescription = ({ id }: prop) => {
     return <div>Error</div>;
   }
   if (isLoading) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
   const demo: JobType = data?.data;
   const responsibility: string[] = demo.responsibilities.split("\n");
