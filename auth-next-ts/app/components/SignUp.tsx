@@ -1,30 +1,21 @@
 "use client";
-import React, { useEffect } from "react";
 import Image from "next/image";
 import formType from "../formType";
-import { FieldErrors, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useAddNewUserMutation } from "@/lib/service/Userfile";
+import { useRouter, redirect } from "next/navigation";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
+import { useState } from "react";
 
 const SignUp = () => {
   const form = useForm<formType>();
-  const { register, handleSubmit, formState } = form;
+  const [emailData, setEmailData] = useState("");
+  const { register, handleSubmit, formState, reset } = form;
+  const router = useRouter();
 
-  const { errors } = formState;
+  const { errors, isSubmitSuccessful } = formState;
 
-  const onSubmit = async (data: formType) => {
-    try {
-      const newUser: formType = {
-        name: data.name,
-        email: data.email,
-        password: data.password,
-        confirmPassword: data.confirmPassword,
-      };
-
-      await addNewUser(newUser);
-    } catch (err) {
-      console.log("error", err);
-    }
-  };
   const [addNewUser, { data, error, isLoading }] = useAddNewUserMutation();
   if (error) {
     return <h1>Errorr</h1>;
@@ -33,7 +24,30 @@ const SignUp = () => {
   if (isLoading) {
     return <h1>Loading</h1>;
   }
-  console.log(data);
+  const onSubmit = async (FormData: formType) => {
+    try {
+      if (FormData.password !== FormData.confirmPassword) {
+        alert("password and confirm password have to be the same");
+        return redirect("/");
+      }
+      setEmailData(FormData.email);
+
+      const newUser: formType = {
+        name: FormData.name,
+        email: FormData.email,
+        password: FormData.password,
+        confirmPassword: FormData.confirmPassword,
+      };
+
+      const res = await addNewUser(newUser);
+      console.log("newUser");
+      console.log(res);
+      router.push(`/Verify?email=${FormData.email}`);
+      reset();
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
 
   return (
     <div className="w-full flex items-center justify-center flex-col m-10 text-blue-900">
@@ -41,7 +55,10 @@ const SignUp = () => {
         <h1 className="flex justify-center font-sans font-extrabold text-3xl mb-5">
           Sign Up Today!
         </h1>
-        <button className="border border-gray-300 w-full mb-5 flex items-center justify-center p-3 rounded-md font-bold">
+        <button
+          className="border border-gray-300 w-full mb-5 flex items-center justify-center p-3 rounded-md font-bold"
+          onClick={() => signIn("google")}
+        >
           <span className="mr-3">
             <Image src={"/google.svg"} width={20} height={20} alt="google" />
           </span>
@@ -135,8 +152,23 @@ const SignUp = () => {
             Continue
           </button>
         </form>
+        <div>
+          {isSubmitSuccessful ? (
+            <Link
+              className="text-black font-bold text-lg"
+              href={`/Verify?email=${emailData}`}
+            >
+              Verify Email
+            </Link>
+          ) : (
+            <p className="text-red-500"></p>
+          )}
+        </div>
         <p className="text-gray-700 mb-5">
-          Already have an account? <span className="font-semibold">Log in</span>
+          Already have an account?{" "}
+          <Link href={"/SignIn"}>
+            <span className="font-semibold">Log in</span>
+          </Link>
         </p>
 
         <p className="text-gray-500">

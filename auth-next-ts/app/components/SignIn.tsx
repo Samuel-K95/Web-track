@@ -1,16 +1,42 @@
 "use client";
 import React, { useEffect } from "react";
 import Image from "next/image";
-import formType from "../formType";
+import formType, { loginType } from "../formType";
 import { FieldErrors, useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
+import { useUserLoginMutation } from "@/lib/service/Userfile";
+import { useRouter } from "next/navigation";
 
 const SignIn = () => {
   const form = useForm<formType>();
   const { register, handleSubmit, formState, reset } = form;
-
   const { errors, isSubmitSuccessful } = formState;
+  const router = useRouter();
 
-  const onSubmit = (data: formType) => {};
+  const [UserLogin, { data, isLoading, isError }] = useUserLoginMutation();
+
+  const onSubmit = async (data: formType) => {
+    const SignInUser: loginType = {
+      email: data.email,
+      password: data.password,
+    };
+
+    let response = await UserLogin(SignInUser);
+    if (response) {
+      console.log("data");
+      console.log(response.data);
+      alert("Succssful");
+      router.push(`/Home?name=${response.data?.data?.name}`);
+    }
+  };
+  if (isError) {
+    return <h1>Errorr</h1>;
+  }
+
+  if (isLoading) {
+    return <h1>Loading</h1>;
+  }
 
   const onError = (errors: FieldErrors<formType>) => {
     console.log("form errors", errors);
@@ -79,9 +105,20 @@ const SignIn = () => {
               Log in
             </button>
           </form>
+          <button
+            className="border border-gray-300 w-full mb-5 flex items-center justify-center p-3 rounded-md font-bold"
+            onClick={() => signIn("google")}
+          >
+            <span className="mr-3">
+              <Image src={"/google.svg"} width={20} height={20} alt="google" />
+            </span>
+            Sign in with Google
+          </button>
           <p className="text-gray-700 mb-5 text-md">
             Don't have an account?{" "}
-            <span className="font-semibold">Sign up</span>
+            <span className="font-semibold">
+              <Link href={"/SignUp"}>Sign up</Link>
+            </span>
           </p>
         </div>
       </div>

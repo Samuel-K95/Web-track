@@ -4,3 +4,13 @@ export default interface formType {
   password: string;
   confirmPassword: string;
 }
+
+export interface verifyType {
+  email: string;
+  otp: string;
+}
+
+export interface loginType {
+  email: string;
+  password: string;
+}

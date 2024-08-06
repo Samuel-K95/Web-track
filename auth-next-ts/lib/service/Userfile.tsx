@@ -1,5 +1,7 @@
 import formType from "@/app/formType";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { verifyType } from "@/app/formType";
+import { loginType } from "@/app/formType";
 
 export const userApi = createApi({
   reducerPath: "users",
@@ -18,8 +20,33 @@ export const userApi = createApi({
         },
       }),
     }),
-    // getUserByEmail: builder.query({}),
+    verifyUser: builder.mutation({
+      query: (data: verifyType) => ({
+        url: "/verify-email",
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: {
+          email: data.email,
+          otp: data.otp,
+        },
+      }),
+    }),
+    UserLogin: builder.mutation({
+      query: (data: loginType) => ({
+        url: "/login",
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: {
+          email: data.email,
+          password: data.password,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useAddNewUserMutation } = userApi;
+export const {
+  useAddNewUserMutation,
+  useVerifyUserMutation,
+  useUserLoginMutation,
+} = userApi;

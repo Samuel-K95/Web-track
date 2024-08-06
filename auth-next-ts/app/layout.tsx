@@ -1,19 +1,22 @@
 "use client";
 import "./globals.css";
-import AuthProvider from "./components/AuthProvider";
-import { store } from "@/lib/store";
 import { Provider } from "react-redux";
+import { store } from "@/lib/store";
+import AuthProvider from "./components/AuthProvider";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //
   return (
     <html lang="en">
-      <Provider store={store}>
-        <body>{children}</body>
-      </Provider>
+      <AuthProvider>
+        <Provider store={store}>
+          <body>{children}</body>
+        </Provider>
+      </AuthProvider>
     </html>
   );
 }

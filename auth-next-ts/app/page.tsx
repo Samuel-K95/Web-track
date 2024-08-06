@@ -1,7 +1,6 @@
 import React from "react";
 import SignUp from "./components/SignUp";
-import SignIn from "./components/SignIn";
-import { Provider } from "react-redux";
+import Verify from "./components/Verify";
 
 const page = () => {
   return (
