@@ -11,7 +11,7 @@
 
 ## tech stack
 
-- next-auth
+- Nextjs
 - Typescript
 - Tawilwind css
 
