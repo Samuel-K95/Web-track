@@ -13,7 +13,6 @@ const SignIn = () => {
   const { register, handleSubmit, formState, reset } = form;
   const { errors, isSubmitSuccessful } = formState;
   const router = useRouter();
-  const [load, setLoad] = useState<boolean>(false);
   const [UserLogin, { data, isLoading, isError }] = useUserLoginMutation();
 
   const onSubmit = async (data: formType) => {
@@ -88,7 +87,7 @@ const SignIn = () => {
               Password
             </label>
             <input
-              type="text"
+              type="password"
               id="password"
               {...register("password", {
                 required: {
