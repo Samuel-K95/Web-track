@@ -22,11 +22,6 @@ export const options: AuthOptions = {
                     headers: {"Content-Type": "application/json"}
                 })
                 const user =  res.json()
-                console.log("user")
-                console.log(user)
-                // if (!user?.ok){
-                //     throw ("no User");
-                // }
                 return user
             }
         })

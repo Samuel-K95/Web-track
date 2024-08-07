@@ -1,22 +1,23 @@
 "use client";
-import { useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 
 const Home = () => {
-  const searchParams = useSearchParams();
-  const SignName = sessionStorage.getItem("email");
-  const session = useSession();
+  const [SignName, setSignName] = useState("");
 
-  console.log("Information");
-  console.log(session);
+  useEffect(() => {
+    const name = sessionStorage.getItem("email");
+    setSignName(name || "");
+  });
+
   return (
     <div className="flex justify-center items-center min-h-screen flex-col">
       <h1 className="font-extrabold text-blue-900 block mb-3">
         Welcome {SignName}
       </h1>
-      <Link href="/SignIn">Log out</Link>
+      <Link href="/SignIn" onClick={() => sessionStorage.setItem("email", "")}>
+        Log out
+      </Link>
     </div>
   );
 };

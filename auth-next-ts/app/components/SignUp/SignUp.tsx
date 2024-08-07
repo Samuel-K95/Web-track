@@ -12,7 +12,7 @@ import Loading from "../Loading/Loading";
 const SignUp = () => {
   const form = useForm<formType>();
   const [emailData, setEmailData] = useState("");
-  const { register, handleSubmit, formState, reset } = form;
+  const { register, handleSubmit, formState, reset, watch } = form;
   const router = useRouter();
   const { errors, isSubmitSuccessful } = formState;
   const [addNewUser, { data, error, isLoading }] = useAddNewUserMutation();
@@ -151,13 +151,18 @@ const SignUp = () => {
             {...register("confirmPassword", {
               required: {
                 value: true,
-                message: "Password field can not be empty",
+                message: "confirm password can not be empty",
+              },
+              validate: {
+                matchPassword: (val: string) =>
+                  watch("password") === val ||
+                  "Confirm password must be the same with password",
               },
             })}
             placeholder="Confirm password"
             className="border border-gray-300 w-full mt-2 rounded text-lg p-2 pl-3 items-center flex mb-5"
           />
-          <p className="text-red-500 m-2">{errors.password?.message}</p>
+          <p className="text-red-500 m-2">{errors.confirmPassword?.message}</p>
 
           <button className=" bg-blue-900 text-white w-full mb-5 flex items-center justify-center p-3 rounded-3xl font-bold mt-3">
             Continue
