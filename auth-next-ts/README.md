@@ -46,4 +46,7 @@
 
 
 ## Demo
-[077baf8c-534f-47b0-b0ea-40ed114cbdb0.webm](https://github.com/user-attachments/assets/d3d5870d-e1ed-43f5-89d7-83f2f9659dd6)
+
+
+https://github.com/user-attachments/assets/2dd0eabc-c914-4f84-8342-dadd460dbc95
+
