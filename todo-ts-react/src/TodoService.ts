@@ -33,7 +33,6 @@ const TodoService = {
 
     deleteTodo: (id: number): void =>{
         const todos = TodoService.getTodos();
-
         const updateTodos = todos.filter((t) => t.id !== id);
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updateTodos));
     }
