@@ -2,8 +2,6 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import GoogleProvider from "next-auth/providers/google";
 import { JWT } from "next-auth/jwt";
 import { User, Session } from "next-auth";
-import NextAuth from "next-auth";
-import { AuthOptions } from "next-auth";
 
 export const options = {
     providers: [
@@ -14,12 +12,11 @@ export const options = {
         CredentialsProvider({
             name: 'Credentials',
             credentials: {
-                name: { label: "Name", type: "text", placeholder: "John Doe"},
                 email: {label: "email", type: "email", placeholder:"jdoe@gmail.com"},
                 password: {label: "password", type:"password"}
             },
             async authorize(credentials, req) {
-                const res = await fetch("endpoint", {
+                const res = await fetch("https://akil-backend.onrender.com/login", {
                     method: 'POST',
                     body: JSON.stringify(credentials),
                     headers: {"Content-Type": "application/json"}
@@ -34,17 +31,21 @@ export const options = {
             }
         })
     ],
+    session: { strategy: "jwt" },
 
     callbacks: {
         async jwt({ token, user}: {token: JWT, user? : User | null}){
+            token.name = user?.name
+            token.email = user?.email
             return token
         },
         async session({session, token}: {session: Session, token: JWT}){
-            return session;
+            session.user!.email = token.email
+            session.user!.name = token.name
+            return session
         },
+        async redirect({url, baseUrl} : {url: string, baseUrl: string}){
+            return url
+        }
     },
 };
-
-const handler = NextAuth(options)
-
-export{ handler as GET, handler as POST}

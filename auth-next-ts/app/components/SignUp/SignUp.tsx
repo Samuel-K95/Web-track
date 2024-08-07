@@ -1,29 +1,30 @@
 "use client";
 import Image from "next/image";
-import formType from "../formType";
+import formType from "../../formType";
 import { useForm } from "react-hook-form";
 import { useAddNewUserMutation } from "@/lib/service/Userfile";
 import { useRouter, redirect } from "next/navigation";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
+import Loading from "../Loading/Loading";
 
 const SignUp = () => {
   const form = useForm<formType>();
   const [emailData, setEmailData] = useState("");
   const { register, handleSubmit, formState, reset } = form;
   const router = useRouter();
-
   const { errors, isSubmitSuccessful } = formState;
-
   const [addNewUser, { data, error, isLoading }] = useAddNewUserMutation();
+
   if (error) {
-    return <h1>Errorr</h1>;
+    return <h1 className="text-red-500">Errorr</h1>;
   }
 
   if (isLoading) {
-    return <h1>Loading</h1>;
+    return <Loading />;
   }
+
   const onSubmit = async (FormData: formType) => {
     try {
       if (FormData.password !== FormData.confirmPassword) {
@@ -42,10 +43,18 @@ const SignUp = () => {
       const res = await addNewUser(newUser);
       console.log("newUser");
       console.log(res);
-      router.push(`/Verify?email=${FormData.email}`);
-      reset();
+      console.log(res.error);
+      if (res.data?.success) {
+        router.push(`/Verify?email=${FormData.email}`);
+        reset();
+      } else {
+        alert("There was an error");
+        router.push("/");
+      }
     } catch (err) {
       console.log("error", err);
+      alert("There was an error");
+      router.push("/");
     }
   };
 
@@ -57,7 +66,9 @@ const SignUp = () => {
         </h1>
         <button
           className="border border-gray-300 w-full mb-5 flex items-center justify-center p-3 rounded-md font-bold"
-          onClick={() => signIn("google")}
+          onClick={() =>
+            signIn("google", { callbackUrl: "http://localhost:3000/protected" })
+          }
         >
           <span className="mr-3">
             <Image src={"/google.svg"} width={20} height={20} alt="google" />

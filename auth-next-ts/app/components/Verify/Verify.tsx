@@ -2,8 +2,9 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useVerifyUserMutation } from "@/lib/service/Userfile";
-import { redirect, useSearchParams, useRouter } from "next/navigation";
-import { verifyType } from "../formType";
+import { useSearchParams, useRouter } from "next/navigation";
+import { verifyType } from "../../formType";
+import Loading from "../Loading/Loading";
 
 interface form_types {
   first: string;
@@ -26,7 +27,7 @@ const Verify = () => {
   }
 
   if (isLoading) {
-    return <h1>Loading</h1>;
+    return <Loading />;
   }
   const onSubmit = async (data: form_types) => {
     try {

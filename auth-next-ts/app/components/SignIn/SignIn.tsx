@@ -1,19 +1,19 @@
 "use client";
-import React, { useEffect } from "react";
-import Image from "next/image";
-import formType, { loginType } from "../formType";
+import React, { useEffect, useState } from "react";
+import formType, { loginType } from "@/app/formType";
 import { FieldErrors, useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useUserLoginMutation } from "@/lib/service/Userfile";
 import { useRouter } from "next/navigation";
+import Loading from "../Loading/Loading";
+import { signIn } from "next-auth/react";
 
 const SignIn = () => {
   const form = useForm<formType>();
   const { register, handleSubmit, formState, reset } = form;
   const { errors, isSubmitSuccessful } = formState;
   const router = useRouter();
-
+  const [load, setLoad] = useState<boolean>(false);
   const [UserLogin, { data, isLoading, isError }] = useUserLoginMutation();
 
   const onSubmit = async (data: formType) => {
@@ -23,11 +23,11 @@ const SignIn = () => {
     };
 
     let response = await UserLogin(SignInUser);
+
     if (response) {
       console.log("data");
       console.log(response.data);
-      alert("Succssful");
-      router.push(`/Home?name=${response.data?.data?.name}`);
+      router.push(`/protected?name=${response.data?.data?.name}`);
     }
   };
   if (isError) {
@@ -35,7 +35,7 @@ const SignIn = () => {
   }
 
   if (isLoading) {
-    return <h1>Loading</h1>;
+    return <Loading />;
   }
 
   const onError = (errors: FieldErrors<formType>) => {
@@ -105,15 +105,15 @@ const SignIn = () => {
               Log in
             </button>
           </form>
-          <button
+          {/* <button
             className="border border-gray-300 w-full mb-5 flex items-center justify-center p-3 rounded-md font-bold"
-            onClick={() => signIn("google")}
+            onClick={() => signIn("google", { callbackUrl: "/Home" })}
           >
             <span className="mr-3">
               <Image src={"/google.svg"} width={20} height={20} alt="google" />
             </span>
             Sign in with Google
-          </button>
+          </button> */}
           <p className="text-gray-700 mb-5 text-md">
             Don't have an account?{" "}
             <span className="font-semibold">
