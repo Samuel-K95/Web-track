@@ -13,25 +13,22 @@ const SignIn = () => {
   const { register, handleSubmit, formState, reset } = form;
   const { errors, isSubmitSuccessful } = formState;
   const router = useRouter();
-  const [UserLogin, { data, isLoading, isError }] = useUserLoginMutation();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onSubmit = async (data: formType) => {
-    const SignInUser: loginType = {
+    setIsLoading(true);
+    const res = await signIn("credentials", {
+      redirect: false,
       email: data.email,
       password: data.password,
-    };
-
-    let response = await UserLogin(SignInUser);
-
-    if (response) {
-      console.log("data");
-      console.log(response.data);
-      router.push(`/protected?name=${response.data?.data?.name}`);
+    });
+    console.log(res);
+    if (res?.ok) {
+      sessionStorage.setItem("name", data.name);
+      sessionStorage.setItem("email", data.email);
+      router.push(`/protected`);
     }
   };
-  if (isError) {
-    return <h1>Errorr</h1>;
-  }
 
   if (isLoading) {
     return <Loading />;

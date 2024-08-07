@@ -1,9 +1,9 @@
 import CredentialsProvider from "next-auth/providers/credentials"
 import GoogleProvider from "next-auth/providers/google";
 import { JWT } from "next-auth/jwt";
-import { User, Session } from "next-auth";
+import { User, Session, AuthOptions } from "next-auth";
 
-export const options = {
+export const options: AuthOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -18,16 +18,16 @@ export const options = {
             async authorize(credentials, req) {
                 const res = await fetch("https://akil-backend.onrender.com/login", {
                     method: 'POST',
-                    body: JSON.stringify(credentials),
+                    body: JSON.stringify(req.body!),
                     headers: {"Content-Type": "application/json"}
                 })
-
-                const user = await res.json()
-
-                if (res.ok && user){
-                    return user
-                }
-                return null
+                const user =  res.json()
+                console.log("user")
+                console.log(user)
+                // if (!user?.ok){
+                //     throw ("no User");
+                // }
+                return user
             }
         })
     ],

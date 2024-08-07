@@ -6,10 +6,11 @@ import { useSession } from "next-auth/react";
 
 const Home = () => {
   const searchParams = useSearchParams();
-  const SignName = searchParams.get("name");
+  const SignName = sessionStorage.getItem("email");
   const session = useSession();
 
   console.log("Information");
+  console.log(session);
   return (
     <div className="flex justify-center items-center min-h-screen flex-col">
       <h1 className="font-extrabold text-blue-900 block mb-3">
