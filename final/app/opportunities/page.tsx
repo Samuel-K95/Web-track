@@ -11,13 +11,16 @@ import { useGetAllJobsQuery } from "@/lib/service/Jobdata";
 const Opportunities = () => {
   const { data, isError, isLoading } =
     useGetAllJobsQuery(undefined); /* fetching all Jobs */
+
+  /* Make sure to comment this section while testing */
   if (isError) {
     return <div>Error</div>;
   }
+  /* Make sure to comment this section while testing */
   if (isLoading) {
     return <Loading />;
   }
-  const jobLists: JobType[] = data?.data;
+  const jobLists: JobType[] = data?.data || [];
   return (
     <div className="mt-10 w-4/5 flex justify-center align-middle items-center flex-col">
       <div className="w-4/5 flex justify-between ml-0">
@@ -38,9 +41,9 @@ const Opportunities = () => {
       </div>
 
       <div className="Container p-2 flex justify-center align-middle items-center flex-col">
-        {jobLists.map((job) => (
+        {jobLists.map((job, index) => (
           <>
-            <JobCard job={job} key={job.id} />{" "}
+            <JobCard job={job} index={index} key={job.id} />{" "}
             {/*This is the Job Card that accepts the Job object as a prop*/}
           </>
         ))}

@@ -13,13 +13,14 @@ import { useRouter } from "next/navigation";
 
 interface job {
   job: JobType;
+  index: number;
 }
 
 /**
  * This is the JobCard component which accepts the Job object as a prop and populates the card from it.
  */
 
-const JobCard = ({ job }: job) => {
+const JobCard = ({ job, index }: job) => {
   const { data: session, status } = useSession();
   const { data, refetch } = useGetBookmarksQuery(session?.user.accessToken);
   const [createBookmark] = useCreateBookmarkMutation(undefined);
@@ -76,7 +77,10 @@ const JobCard = ({ job }: job) => {
     ? job.logoUrl
     : "https://res.cloudinary.com/dtt1wnvfb/image/upload/v1701954159/photo_2023-12-07%2016.02.23.jpeg.jpg";
   return (
-    <div className="mt-5 w-4/5 p-5  hover:shadow-md border hover:cursor-pointer rounded-3xl">
+    <div
+      data-testid={`job-card-${index}`}
+      className="mt-5 w-4/5 p-5  hover:shadow-md border hover:cursor-pointer rounded-3xl"
+    >
       <div className="MainContent flex flex-row">
         <a href={`/opportunities/search?index=${job?.id}`}>
           <div className="image flex-shrink-0 mr-5">
