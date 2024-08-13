@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import { useGetAllJobsQuery } from "@/lib/service/Jobdata";
 
 const Nav = () => {
   const { data: session, status } = useSession();
+  const { refetch } = useGetAllJobsQuery(session?.user.accessToken);
 
   return (
     <header className="text-black-100 pl-12 pr-20">
@@ -12,6 +14,13 @@ const Nav = () => {
           Welcome {session ? session.user.name : " "}
         </div>
         <div className="flex gap-10 items-center">
+          <Link
+            href={"/opportunities"}
+            className="text-blue-900 font-bold"
+            onClick={() => refetch()}
+          >
+            Home
+          </Link>
           <Link
             href={"/opportunities/bookmarks"}
             className="text-blue-900 font-bold"

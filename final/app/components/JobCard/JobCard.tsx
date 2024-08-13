@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import {
   useCreateBookmarkMutation,
+  useGetAllJobsQuery,
   useGetBookmarksQuery,
   useUnBookmarkMutation,
 } from "@/lib/service/Jobdata";
@@ -29,6 +30,7 @@ const JobCard = ({ job }: job) => {
   for (const key in data?.data) {
     BookmarkedJobs.push(data?.data[key].eventID);
   }
+
   const router = useRouter();
 
   const handleBookmark = async () => {
@@ -42,6 +44,8 @@ const JobCard = ({ job }: job) => {
         id: job.id,
         accessToken: session?.user?.accessToken || "",
       });
+      console.log("response");
+      console.log(response);
       if (response.data?.success) {
         BookmarkedJobs.push(job.id);
         alert("Bookmarked Successfully!");

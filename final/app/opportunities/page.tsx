@@ -23,7 +23,9 @@ const Opportunities = () => {
       <div className="w-4/5 flex justify-between ml-0">
         <div className="mt-0 Opportunities">
           <h1 className="mt-0 text-3xl font-extrabold">Opportunities</h1>
-          <span className="text-gray-500">Showing {data?.count} results</span>
+          <span className="text-gray-500">
+            Showing {jobLists.length} results
+          </span>
         </div>
         <div className="sortBy flex items-center">
           <span className="mr-2 text-gray-500">Sort By:</span>

@@ -10,7 +10,13 @@ export const jobsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://akil-backend.onrender.com/" }),
   endpoints: (builder) => ({
     getAllJobs: builder.query({
-      query: () => "/opportunities/search",
+      query: (accessToken: string = "") => ({
+        url: "/opportunities/search",
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }),
     }),
 
     getJobById: builder.query({

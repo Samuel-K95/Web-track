@@ -6,6 +6,7 @@ import {
   useGetBookmarksQuery,
   useUnBookmarkMutation,
 } from "@/lib/service/Jobdata";
+import Loading from "../Loading/loading";
 
 interface jobProp {
   job: JobType;
@@ -13,8 +14,12 @@ interface jobProp {
 
 const Bookmark = ({ job }: jobProp) => {
   const { data: session, status } = useSession();
-  const { data, refetch } = useGetBookmarksQuery(session?.user.accessToken);
+  const { refetch, isLoading, isError } = useGetBookmarksQuery(
+    session?.user.accessToken
+  );
+
   const [unBookmark] = useUnBookmarkMutation(undefined);
+  console.log("in bookmark:", job.isBookmarked);
 
   const handleUnBookmark = async () => {
     try {
@@ -31,6 +36,10 @@ const Bookmark = ({ job }: jobProp) => {
       alert("There was an error. Try again!");
     }
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   const url: string = job.logoUrl
     ? job.logoUrl
