@@ -3,6 +3,7 @@ import JobCard from "@/app/components/JobCard/JobCard";
 import Loading from "@/app/components/Loading/loading";
 import JobType from "@/app/JobType";
 import { useGetAllJobsQuery } from "@/lib/service/Jobdata";
+import { Suspense } from "react";
 
 /**
  * This is the page that lists the Jobs.
@@ -43,8 +44,10 @@ const Opportunities = () => {
       <div className="Container p-2 flex justify-center align-middle items-center flex-col">
         {jobLists.map((job, index) => (
           <>
-            <JobCard job={job} index={index} key={job.id} />{" "}
-            {/*This is the Job Card that accepts the Job object as a prop*/}
+            <Suspense fallback={<Loading />}>
+              <JobCard job={job} index={index} key={job.id} />{" "}
+              {/*This is the Job Card that accepts the Job object as a prop*/}
+            </Suspense>
           </>
         ))}
       </div>

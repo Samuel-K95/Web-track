@@ -61,8 +61,11 @@ const BookMarkPage = () => {
           </div>
 
           {jobLists.map((job) => (
-            <div className="w-full p-2 flex justify-center align-middle items-center flex-col">
-              <Bookmark job={job} key={job.id} />{" "}
+            <div
+              className="w-full p-2 flex justify-center align-middle items-center flex-col"
+              key={job.id}
+            >
+              <Bookmark job={job} />{" "}
               {/*This is the Job Card that accepts the Job object as a prop*/}
             </div>
           ))}

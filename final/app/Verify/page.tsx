@@ -1,11 +1,14 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Verify from "../components/Verify/Verify";
+import Loading from "../components/Loading/loading";
 
 const VerifyUser = () => {
   return (
-    <div>
-      <Verify />
-    </div>
+    <Suspense fallback={<Loading />}>
+      <div>
+        <Verify />
+      </div>
+    </Suspense>
   );
 };
 

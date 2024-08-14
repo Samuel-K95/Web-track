@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useVerifyUserMutation } from "@/lib/service/UserData";
 import { useSearchParams, useRouter } from "next/navigation";
