@@ -112,7 +112,7 @@ const LoginForm = () => {
             </form>
 
             <p className="text-gray-700 mb-5 text-md">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <span className="font-semibold">
                 <Link href={"/SignUp"}>Sign up</Link>
               </span>

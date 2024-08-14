@@ -57,8 +57,8 @@ const Verify = () => {
       <div className="flex flex-col justify-center items-center w-1/3">
         <h1 className="font-extrabold text-3xl mb-10">Verify Email</h1>
         <p className="text-gray-400 text-lg text-justify">
-          We've sent a verification code to the email address you provided. To
-          complete the verification process, please enter the code here.
+          We&apos;ve sent a verification code to the email address you provided.
+          To complete the verification process, please enter the code here.
         </p>
 
         <div className="mt-10 flex flex-cols justify-center items-center">

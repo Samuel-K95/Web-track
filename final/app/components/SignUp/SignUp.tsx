@@ -91,7 +91,7 @@ const SignUp = () => {
             {...register("name", {
               required: {
                 value: true,
-                message: "Name field Can't be empty",
+                message: "Name field Cant be empty",
               },
             })}
             placeholder="Enter your full name"
@@ -172,8 +172,8 @@ const SignUp = () => {
         </p>
 
         <p className="text-gray-500">
-          By clicking 'Continue', you acknowledge that you have read and
-          accepted out{" "}
+          By clicking &apos;Continue&apos;, you acknowledge that you have read
+          and accepted out{" "}
           <span className="text-blue-900 font-semibold">Terms of Service</span>{" "}
           and{" "}
           <span className="text-blue-900 font-semibold">Privacy Policy</span>
