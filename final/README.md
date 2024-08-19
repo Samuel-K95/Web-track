@@ -1,8 +1,8 @@
-# Next Auth
+# Akil's Job Posting
 
 - This is the final task for the web track. Which is to add Bookmarking feature to the Job listing page and to allow the feature only for authenticated users only. And, to test the bookmarking and end to end testing.
 
-## features
+## Features
 
 - Sign up
 - Email veriffication
@@ -11,7 +11,7 @@
 - Server side validation
 - Bookmarking and Unbookmarking for authorized users only
 
-## tech stack
+## Tech stack
 
 - Nextjs
 - Typescript
@@ -43,3 +43,16 @@
 
 
 ## Demo
+
+https://github.com/user-attachments/assets/a97467a9-5f17-41e1-9e12-2c6d7d7565ac
+
+## Testing Demo
+
+# Cypress
+https://github.com/user-attachments/assets/80ceafd7-e33c-4faa-b9cd-7ba64cf3f21e
+# Jest
+![jest](https://github.com/user-attachments/assets/dbd9eaca-718f-4f6d-977a-711253da56ca)
+
+
+
+
