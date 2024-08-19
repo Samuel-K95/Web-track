@@ -34,7 +34,7 @@ const Nav = () => {
               </button>
             </Link>
           ) : (
-            <Link href="/LogIn">
+            <Link href="/LogIn" data-id="login-btn">
               <button className="bg-blue-500 flex p-2 rounded text-white">
                 Log in
               </button>

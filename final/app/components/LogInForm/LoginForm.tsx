@@ -24,6 +24,7 @@ const LoginForm = () => {
       });
 
       if (resp?.ok) {
+        console.log(resp);
         alert("successfuly logged in!");
         router.push("/opportunities");
       } else {

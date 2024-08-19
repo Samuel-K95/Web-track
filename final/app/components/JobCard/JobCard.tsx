@@ -24,6 +24,7 @@ interface job {
 const JobCard = ({ job, index }: job) => {
   const { data: session, status } = useSession();
   const { data, refetch } = useGetBookmarksQuery(session?.user.accessToken);
+
   const [createBookmark] = useCreateBookmarkMutation(undefined);
   const [unBookmark] = useUnBookmarkMutation(undefined);
 
@@ -79,7 +80,7 @@ const JobCard = ({ job, index }: job) => {
     : "https://res.cloudinary.com/dtt1wnvfb/image/upload/v1701954159/photo_2023-12-07%2016.02.23.jpeg.jpg";
   return (
     <div
-      data-testid={`job-card-${index}`}
+      data-id={`job-card-${index}`}
       className="mt-5 w-4/5 p-5  hover:shadow-md border hover:cursor-pointer rounded-3xl"
     >
       <div className="MainContent flex flex-row">
@@ -119,6 +120,7 @@ const JobCard = ({ job, index }: job) => {
             <div>
               {BookmarkedJobs?.includes(job.id) ? (
                 <button
+                  data-id={`Unbookmark-btn-${index}`}
                   className="p-2 mr-2 text-yellow-400 hover:bg-yellow-100 font-semibold py-2 px-4 border border-yellow-300 rounded-3xl"
                   onClick={handleUnBookmark}
                 >
@@ -126,6 +128,7 @@ const JobCard = ({ job, index }: job) => {
                 </button>
               ) : (
                 <button
+                  data-id={`bookmark-btn-${index}`}
                   className="text-blue-500 hover:bg-blue-100 bg-blue-50 font-semibold py-2 px-4 rounded-3xl"
                   onClick={handleBookmark}
                 >

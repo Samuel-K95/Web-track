@@ -10,7 +10,10 @@ const LandingPage = () => {
         Welcome to Akil&apos;s Job listing landing page
       </p>
       <Link href="/opportunities" className="flex justify-center">
-        <button className="bg-blue-900 hover:bg-blue-800 active:bg-blue-700 text-white  mb-5 flex items-center justify-center flex-shrink-0 p-3 rounded-3xl font-bold mt-3 cursor-pointer ">
+        <button
+          data-id="open-akil-btn"
+          className="bg-blue-900 hover:bg-blue-800 active:bg-blue-700 text-white  mb-5 flex items-center justify-center flex-shrink-0 p-3 rounded-3xl font-bold mt-3 cursor-pointer "
+        >
           Get Started
         </button>
       </Link>
