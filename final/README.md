@@ -5,7 +5,6 @@
 ## Features
 
 - Sign up
-- Log in
 - Email veriffication
 - Authentication (Nextauth)
 - Client side form validation
