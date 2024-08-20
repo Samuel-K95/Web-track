@@ -1,8 +1,8 @@
-# Next Auth
+# Akil's Job Posting
 
 - This is the final task for the web track. Which is to add Bookmarking feature to the Job listing page and to allow the feature only for authenticated users only. And, to test the bookmarking and end to end testing.
 
-## features
+## Features
 
 - Sign up
 - Email veriffication
@@ -11,7 +11,7 @@
 - Server side validation
 - Bookmarking and Unbookmarking for authorized users only
 
-## tech stack
+## Tech stack
 
 - Nextjs
 - Typescript
@@ -43,5 +43,3 @@
 
 
 ## Demo
-
-
