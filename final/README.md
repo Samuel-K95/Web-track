@@ -5,8 +5,9 @@
 ## Features
 
 - Sign up
+- Log in
 - Email veriffication
-- Login
+- Authentication (Nextauth)
 - Client side form validation
 - Server side validation
 - Bookmarking and Unbookmarking for authorized users only
@@ -34,6 +35,9 @@
 
 3. **Install necessary modules**
 
+
+
+
    ```bash
    npm install
    npm run dev
@@ -43,3 +47,10 @@
 
 
 ## Demo
+
+https://github.com/user-attachments/assets/c37c9d03-2afd-45a0-a2fc-80ccf108256f
+# Cypress Demo
+
+https://github.com/user-attachments/assets/8abf5c9f-b45c-49bd-b274-5408965a5386
+# Jest
+![jest](https://github.com/user-attachments/assets/6818ef5c-cc11-479a-82d2-c6c058dd877d)
