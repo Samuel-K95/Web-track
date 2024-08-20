@@ -33,16 +33,23 @@
    ```
 
 3. **Install necessary modules**
-
-
-
-
    ```bash
    npm install
    npm run dev
    ```
 
    Open http://localhost:3000/ and start viewng the pages
+4. **Testing**
+   
+   **Jest**
+   ```bash
+   npm test
+   ```
+   
+   **Cypress**
+   ```bash
+   npm run cypress:open
+   ```   
 
 
 ## Demo
