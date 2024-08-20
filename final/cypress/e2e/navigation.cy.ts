@@ -23,6 +23,7 @@ describe("Opportunities page test", () => {
       "https://akil-backend.onrender.com/opportunities/search"
     ).as("getOpportunities");
   });
+
   it("Displays all opportunities", () => {
     cy.visit("/opportunities");
     cy.wait("@getOpportunities");
@@ -37,7 +38,9 @@ describe("Opportunities page test", () => {
 
   it("Displays Login page", () => {
     cy.visit("/opportunities");
-    cy.wait("@getOpportunities");
-    cy.get("[data-id=login-btn]").should("be.visible");
+    cy.get("[data-id=logout-btn]").click();
+    cy.visit("/LogIn");
+    cy.get("[data-id=login-h1]").should("be.visible");
+    cy.wait(5000);
   });
 });

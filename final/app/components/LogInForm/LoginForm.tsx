@@ -52,7 +52,10 @@ const LoginForm = () => {
       <div className="flex items-center justify-center min-h-screen">
         <div className="w-full flex items-center justify-center flex-col m-10">
           <div className="flex flex-col w-1/4 justify-center">
-            <h1 className="flex justify-center font-sans font-extrabold text-4xl mb-2">
+            <h1
+              data-id="login-h1"
+              className="flex justify-center font-sans font-extrabold text-4xl mb-2"
+            >
               Welcome Back,
             </h1>
           </div>

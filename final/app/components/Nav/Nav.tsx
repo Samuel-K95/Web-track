@@ -22,6 +22,7 @@ const Nav = () => {
             Home
           </Link>
           <Link
+            data-id="bookmark-btn"
             href={"/opportunities/bookmarks"}
             className="text-blue-900 font-bold"
           >
@@ -35,7 +36,10 @@ const Nav = () => {
             </Link>
           ) : (
             <Link href="/LogIn" data-id="login-btn">
-              <button className="bg-blue-500 flex p-2 rounded text-white">
+              <button
+                data-id="logout-btn"
+                className="bg-blue-500 flex p-2 rounded text-white"
+              >
                 Log in
               </button>
             </Link>
