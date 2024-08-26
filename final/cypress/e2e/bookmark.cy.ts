@@ -1,4 +1,3 @@
-import { only } from "node:test";
 import "../support/commands";
 
 describe("Tesiting Bookmark with Authorized and Unauthorized users", () => {
@@ -67,7 +66,7 @@ describe("Tesiting Bookmark with Authorized and Unauthorized users", () => {
         .should("have.class", "text-blue-500")
         .and("contain", "Add Bookmark");
 
-      cy.wait(5000);
+      cy.wait(1000);
     });
   });
 });

@@ -41,6 +41,5 @@ describe("Opportunities page test", () => {
     cy.get("[data-id=logout-btn]").click();
     cy.visit("/LogIn");
     cy.get("[data-id=login-h1]").should("be.visible");
-    cy.wait(5000);
   });
 });
